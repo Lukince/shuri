@@ -4,6 +4,7 @@ import configparser
 import openpyxl
 import random
 from captcha. image import ImageCaptcha
+import os
 
 @client.event
 
@@ -159,4 +160,5 @@ async def on_message(message):
 
 
         #각각에 print로 로그를 남겨서 작동되는지 확인하고 수정해놓기.
-client.run("NjA1MzM4Mzg2NTEzMDAyNTI2.XT7DYg.3LDxOi905TCGa88m0kkrk7sdEjU")
+access_token = os.environ["BOT_TOKEN"]
+client.run(access_token)
