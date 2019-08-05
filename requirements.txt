@@ -1,1 +1,4 @@
 discord.py==0.16.12
+configparser==3.7.4
+openpyxl==2.6.2
+captcha==0.3
