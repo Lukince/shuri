@@ -1,6 +1,5 @@
 import discord
 client = discord.Client()
-import configparser
 import openpyxl
 import random
 from captcha. image import ImageCaptcha
@@ -9,22 +8,24 @@ import os
 @client.event
 
 async def on_ready():
-    a = configparser.ConfigParser()
-    a.read("setting.ini")
-    status = a["setting"]["status"]
     print("Ready")
-    game = discord.Game(status)
+    game = discord.Game("실험체를 생성중...")
     await client.change_presence(status=discord.Status.online, activity=game)
 
 @client.event
 
 async def on_message(message):
 
+    HelloArr = ["안녕!" + message.author, "나불렀썽?", "짠 슈리 등장! :laughing:"]
+
     if message.content.startswith("=도움말"):
         author = message.author
         embed = discord.Embed(color=0x0000ff)
-        embed.add_field(name="공지", value="공지를 올립니다.\n사용법 : -공지 \"할말\"")
+        #embed.add_field(name="공지", value="공지를 올립니다.\n사용법 : -공지 \"할말\"")
         await author.send(embed=embed)
+
+    if message.content.startswith("=안녕"):
+        await message.channel.send(HelloArr[int(random.randint(0, 2))])
 
     if message.content.startswith("=공지"):
         if message.content[4:] != "":
@@ -99,14 +100,6 @@ async def on_message(message):
                     break
         i += 1
 
-    if message.content.startswith('=신고'):
-        author = message.guild.get_member(int(378535260754935819))
-        messages = message.content[4:]
-        await author.send(messages)
-        embed = discord.Embed(title="니노서버 신고 시스템", description=None, color=0xb2ebf4)
-        embed.add_field(name="신고", value="정상 처리 되었습니다.", inline=False)
-        await author.send(embed=embed)
-
     if message.channel == "dm":
         await message.author.send("Hi")
 
@@ -132,6 +125,7 @@ async def on_message(message):
             return message.channel.send(str(Member) + "님이 현재 문제를 풀고 계십니다")
 
     if message.content.startswith("=인증"):
+
         Image_captcha = ImageCaptcha()
         msg = ""
         a = ""
@@ -156,6 +150,8 @@ async def on_message(message):
             await message.guild.get_member(message.author.id).add_roles(discord.utils.get(message.guild.roles, name="user"))
         else:
             await message.channel.send("인증에 실패하였습니다. 다시 시도해 주세요.")
+
+
 
 
 
