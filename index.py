@@ -16,16 +16,16 @@ async def on_ready():
 
 async def on_message(message):
 
-    HelloArr = ["안녕!" + message.author, "나불렀썽?", "짠 슈리 등장! :laughing:"]
+    #HelloArr = ["안녕!" + message.author, "나불렀썽?", "짠 슈리 등장! :laughing:"]
 
-    if message.content.startswith("=도움말"):
-        author = message.author
-        embed = discord.Embed(color=0x0000ff)
+    #if message.content.startswith("=도움말"):
+        #author = message.author
+        #embed = discord.Embed(color=0x0000ff)
         #embed.add_field(name="공지", value="공지를 올립니다.\n사용법 : -공지 \"할말\"")
-        await author.send(embed=embed)
+        #await author.send(embed=embed)
 
-    if message.content.startswith("=안녕"):
-        await message.channel.send(HelloArr[int(random.randint(0, 2))])
+    #if message.content.startswith("=안녕"):
+        #await message.channel.send(HelloArr[int(random.randint(0, 2))])
 
     if message.content.startswith("=공지"):
         if message.content[4:] != "":
