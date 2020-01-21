@@ -7,7 +7,7 @@ import os
 #Answer = 0
 
 def Record_Content(content, author, channel):
-    channels = client.get_channel(667756919129112586)
+    var channels = client.get_channel(667756919129112586)
     await channels.send(author+"님이 "+channel+"에서 "+content+"라고 하였습니다.")
 
 @client.event
@@ -22,19 +22,19 @@ async def on_ready():
 async def on_message(message):
     if (message.content.find('시발련아') > -1):
         Record_Content(message.content, message.author.username, message.channel.name)
-    else if (message.content.find('닥쳐') > -1):
+    elif (message.content.find('닥쳐') > -1):
         Record_Content(message.content, message.author.username, message.channel.name)
-    else if (message.content.find('니얼굴이민철') > -1):
+    elif (message.content.find('니얼굴이민철') > -1):
         Record_Content(message.content, message.author.username, message.channel.name)
-    else if (message.content.find('이민철') > -1):
+    elif (message.content.find('이민철') > -1):
         Record_Content(message.content, message.author.username, message.channel.name)
-    else if (message.content.find('니애미') > -1):
+    elif (message.content.find('니애미') > -1):
         Record_Content(message.content, message.author.username, message.channel.name)
-    else if (message.content.find('섹스') > -1):
+    elif (message.content.find('섹스') > -1):
         Record_Content(message.content, message.author.username, message.channel.name)
-    else if (message.content.find('세에엑스') > -1):
+    elif (message.content.find('세에엑스') > -1):
         Record_Content(message.content, message.author.username, message.channel.name)
-    else if (message.content.find('개새끼') > -1):
+    elif (message.content.find('개새끼') > -1):
         Record_Content(message.content, message.author.username, message.channel.name)
     """
     if message.content.startswith("=인증"):
