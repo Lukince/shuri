@@ -4,18 +4,39 @@ import random
 from captcha. image import ImageCaptcha
 import os
 
-Answer = 0
+#Answer = 0
+
+def Record_Content(content, author, channel):
+    channels = client.get_channel(667756919129112586)
+    await channels.send(author+"님이 "+channel+"에서 "+content+"라고 하였습니다.")
 
 @client.event
 
 async def on_ready():
     print("Shuri is Ready!")
-    game = discord.Game("여러분과 대화할 준비중!")
+    game = discord.Game("채팅 검열중 :face_with_monocle:")
     await client.change_presence(status=discord.Status.online, activity=game)
 
 @client.event
 
 async def on_message(message):
+    if (message.content.find('시발련아') > -1):
+        Record_Content(message.content, message.author.username, message.channel.name)
+    else if (message.content.find('닥쳐') > -1):
+        Record_Content(message.content, message.author.username, message.channel.name)
+    else if (message.content.find('니얼굴이민철') > -1):
+        Record_Content(message.content, message.author.username, message.channel.name)
+    else if (message.content.find('이민철') > -1):
+        Record_Content(message.content, message.author.username, message.channel.name)
+    else if (message.content.find('니애미') > -1):
+        Record_Content(message.content, message.author.username, message.channel.name)
+    else if (message.content.find('섹스') > -1):
+        Record_Content(message.content, message.author.username, message.channel.name)
+    else if (message.content.find('세에엑스') > -1):
+        Record_Content(message.content, message.author.username, message.channel.name)
+    else if (message.content.find('개새끼') > -1):
+        Record_Content(message.content, message.author.username, message.channel.name)
+    """
     if message.content.startswith("=인증"):
         Image_captcha = ImageCaptcha()
         msg = ""
@@ -78,5 +99,6 @@ async def on_message(message):
             else:
                 await message.channel.send("틀렸습니다! :x: 정답은 " + str(Answer) + " 입니다!")
 '''
+"""
 BOT_TOKEN = os.environ("BOT_TOKEN")
 client.run(BOT_TOKEN)
