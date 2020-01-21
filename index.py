@@ -1,14 +1,13 @@
 import discord
 client = discord.Client()
 import random
-from captcha. image import ImageCaptcha
+#from captcha. image import ImageCaptcha
 import os
 
 #Answer = 0
 
 def Record_Content(content, author, channel):
-    var channels = client.get_channel(667756919129112586)
-    await channels.send(author+"님이 "+channel+"에서 "+content+"라고 하였습니다.")
+    await (client.get_channel(667756919129112586)).send(author+"님이 "+channel+"에서 "+content+"라고 하였습니다.")
 
 @client.event
 
